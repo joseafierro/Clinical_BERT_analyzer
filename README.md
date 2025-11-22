@@ -1,23 +1,23 @@
-🏥 Healthcare AI Analyzer
+Healthcare AI Analyzer
 
-Healthcare AI Analyzer is a Python application that performs advanced analysis on unstructured clinical text using transformer-based medical NLP models. It supports concept extraction, summarization, semantic similarity search, urgency classification, and specialty routing — all through an interactive terminal menu.
+Healthcare AI Analyzer is a Python application for advanced analysis of unstructured clinical text using transformer-based medical NLP models. It supports concept extraction, summarization, semantic similarity search, urgency classification, and specialty routing through an interactive terminal interface.
 
-This tool is intended for clinicians, medical data scientists, and healthcare NLP researchers who want a fast way to explore clinical documentation using models such as BioBERT, BART, and MNLI without building the pipeline from scratch.
+The tool is intended for clinicians, healthcare data scientists, and NLP researchers who require a ready-to-use pipeline for clinical documentation analysis using models such as BioBERT, BART, and MNLI.
 
-🚀 Features
-Feature	Description
-🧠 Medical Concept Extraction	Uses BioBERT embeddings to identify key biomedical terms.
-📝 Clinical Note Summarization	Generates concise summaries using BART (abstractive).
-🔍 Similar Case Search	Finds top semantically similar clinical notes using cosine similarity.
-🚨 Urgency Classification	Zero-shot classification into emergency / urgent / routine / follow-up levels.
-🏥 Specialty Routing	Recommends appropriate medical specialty (cardiology, neurology, pulmonology, etc.).
-📊 Batch Analysis	Applies classification and routing to all notes inside the dataset.
-🖥️ GPU Support	Uses CUDA automatically if available for faster inference.
-📦 Requirements
+Key Features
+Capability	Description
+Medical concept extraction	Identifies relevant biomedical terminology using BioBERT embeddings.
+Clinical note summarization	Generates concise summaries using BART (abstractive summarization).
+Semantic case similarity	Compares notes using cosine similarity of BioBERT embeddings.
+Urgency classification	Categorizes cases as emergency, urgent, routine, or follow-up using zero-shot classification.
+Specialty routing	Suggests the most appropriate clinical specialty (e.g., cardiology, neurology, pulmonology).
+Batch analysis	Processes all notes in a dataset automatically.
+Optional GPU acceleration	Uses CUDA if available for faster model inference.
+Dependencies
 
 The script automatically detects missing dependencies and offers to install them.
 
-Core packages:
+Required Python packages:
 
 transformers
 torch
@@ -25,41 +25,40 @@ scikit-learn
 numpy
 
 
-You may install them manually if preferred:
+Manual installation example:
 
 pip install transformers torch scikit-learn numpy
 
 
-GPU acceleration requires a CUDA build of PyTorch and an NVIDIA GPU.
+GPU acceleration requires a CUDA-enabled installation of PyTorch and a compatible NVIDIA GPU.
 
-📂 Input Format
+Input Format
 
-The program expects a plain text file containing one or more clinical notes.
-Notes may be separated with blank lines, for example:
+The application expects a plain text file containing one or more clinical notes. Notes may be separated with blank lines. For example:
 
-Patient presents with chest pain radiating to left arm...
-EKG shows ST elevations...
+Patient presents with chest pain radiating to the left arm.
+EKG shows ST elevations and diaphoresis is present.
 
-Patient with COPD exacerbation requiring BiPAP...
-Increasing sputum production...
+Patient with COPD exacerbation requiring BiPAP.
+Increased sputum production and diminished breath sounds bilaterally.
 
 
-Each block is treated as a separate clinical note.
+Each paragraph is treated as a separate clinical note.
 
-▶️ Usage
+Usage
 
 Run the script:
 
 python clinical_BERT_analyzer.py
 
 
-You will be prompted to enter:
+On launch, the program will request:
 
-Path to the medical text file
+Path to the clinical text file
 
 CPU or GPU selection
 
-You will then see the menu:
+The main menu then becomes available:
 
 1. Extract Medical Concepts
 2. Summarize Clinical Note
@@ -73,44 +72,40 @@ You will then see the menu:
 0. Exit
 
 
-Most options allow you to:
+Most options allow the user to select a specific note or perform analysis on the entire document.
 
-Select a note by index
+Under-the-Hood Design
 
-Or run the model on the entire document
+BioBERT is used for semantic embeddings and concept extraction.
 
-⚙️ Architecture Highlights
+BART (facebook/bart-large-cnn) is used for abstractive summarization.
 
-BioBERT used for semantic embeddings and concept extraction
+Zero-shot MNLI classification is used for:
 
-BART (facebook/bart-large-cnn) used for summarization
-
-Zero-shot MNLI model used for:
-
-Urgency classification
+Urgency scoring
 
 Specialty routing
 
-Cosine similarity search over cached BioBERT embeddings for fast comparisons
+Cosine similarity from scikit-learn enables fast semantic case comparisons.
 
-Graceful fallback logic when transformer models are not available
+Cached embeddings prevent redundant computation and improve performance.
 
-🧪 Example Workflow
+A fallback rules-based system provides limited functionality if transformer models cannot be loaded.
 
-Load file containing raw clinical notes
+Typical Workflow
 
-Summarize each note to extract high-level insight
+Load a text file containing multiple clinical notes.
 
-Determine urgency classification to triage cases
+Summarize each note for high-level interpretation.
 
-Route cases to specialty subspecialties
+Determine urgency classification to assist with case prioritization.
 
-Find similar cases for differential and population insight
+Assign likely specialty routing.
 
-🛡️ Notes / Disclaimer
+Search for similar clinical cases within the dataset.
 
-This project is for research and educational purposes only.
+Disclaimer
 
-It is not a clinical decision support tool and should not guide real-world patient care.
-
-Transformer-based NLP may generate errors; always validate outputs manually.
+This project is designed for research, experimentation, and software development purposes only.
+It is not intended for direct clinical decision making or patient care.
+Medical text models may produce inaccurate or misleading interpretations; all output must be verified manually.
