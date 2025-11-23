@@ -3,17 +3,21 @@ Advanced Clinical Text Analysis with Medical NLP
 
 Overview
 Healthcare AI Analyzer is a Python application that leverages transformer-based medical NLP models to perform sophisticated analysis of unstructured clinical text. With an intuitive terminal interface, it delivers powerful insights for clinical documentation through concept extraction, summarization, semantic search, and intelligent classification.
-Designed for: Clinicians · Healthcare Data Scientists · NLP Researchers
+**Designed for:** Clinicians · Healthcare Data Scientists · NLP Researchers
 
 **Key Features**
 
-Medical Concept ExtractionIdentifies relevant biomedical terminology using BioBERT embeddings
-Clinical Note SummarizationGenerates concise summaries using BART abstractive summarization
-Semantic Case SimilarityCompares notes using cosine similarity of BioBERT embeddings
-Urgency ClassificationCategorizes cases as emergency, urgent, routine, or follow-up
-Specialty RoutingSuggests appropriate clinical specialty (cardiology, neurology, pulmonology, etc.)
-Batch AnalysisProcesses all notes in a dataset automatically
-GPU AccelerationOptional CUDA support for faster model inference
+
+| Capability | Description |
+|------------|-------------|
+| **Medical Concept Extraction** | Identifies relevant biomedical terminology using BioBERT embeddings |
+| **Clinical Note Summarization** | Generates concise summaries using BART abstractive summarization |
+| **Semantic Case Similarity** | Compares notes using cosine similarity of BioBERT embeddings |
+| **Urgency Classification** | Categorizes cases as emergency, urgent, routine, or follow-up |
+| **Specialty Routing** | Suggests appropriate clinical specialty (cardiology, neurology, pulmonology, etc.) |
+| **Batch Analysis** | Processes all notes in a dataset automatically |
+|  **GPU Acceleration** | Optional CUDA support for faster model inference |
+
 
 Dependencies
 The script automatically detects missing dependencies and offers to install them.
