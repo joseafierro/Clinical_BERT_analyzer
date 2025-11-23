@@ -1,111 +1,135 @@
-Healthcare AI Analyzer
+**Clinical BERT Analyzer**
+Advanced Clinical Text Analysis with Medical NLP
 
-Healthcare AI Analyzer is a Python application for advanced analysis of unstructured clinical text using transformer-based medical NLP models. It supports concept extraction, summarization, semantic similarity search, urgency classification, and specialty routing through an interactive terminal interface.
+Overview
+Healthcare AI Analyzer is a Python application that leverages transformer-based medical NLP models to perform sophisticated analysis of unstructured clinical text. With an intuitive terminal interface, it delivers powerful insights for clinical documentation through concept extraction, summarization, semantic search, and intelligent classification.
+Designed for: Clinicians · Healthcare Data Scientists · NLP Researchers
 
-The tool is intended for clinicians, healthcare data scientists, and NLP researchers who require a ready-to-use pipeline for clinical documentation analysis using models such as BioBERT, BART, and MNLI.
+**Key Features**
 
-Key Features
-Capability	Description
-Medical concept extraction	Identifies relevant biomedical terminology using BioBERT embeddings.
-Clinical note summarization	Generates concise summaries using BART (abstractive summarization).
-Semantic case similarity	Compares notes using cosine similarity of BioBERT embeddings.
-Urgency classification	Categorizes cases as emergency, urgent, routine, or follow-up using zero-shot classification.
-Specialty routing	Suggests the most appropriate clinical specialty (e.g., cardiology, neurology, pulmonology).
-Batch analysis	Processes all notes in a dataset automatically.
-Optional GPU acceleration	Uses CUDA if available for faster model inference.
+Medical Concept ExtractionIdentifies relevant biomedical terminology using BioBERT embeddings
+Clinical Note SummarizationGenerates concise summaries using BART abstractive summarization
+Semantic Case SimilarityCompares notes using cosine similarity of BioBERT embeddings
+Urgency ClassificationCategorizes cases as emergency, urgent, routine, or follow-up
+Specialty RoutingSuggests appropriate clinical specialty (cardiology, neurology, pulmonology, etc.)
+Batch AnalysisProcesses all notes in a dataset automatically
+GPU AccelerationOptional CUDA support for faster model inference
+
 Dependencies
-
 The script automatically detects missing dependencies and offers to install them.
+Required Python Packages
 
-Required Python packages:
+-transformers
+-torch
+-scikit-learn
+-numpy
 
-transformers
-torch
-scikit-learn
-numpy
-
-
-Manual installation example:
-
+Installation
 pip install transformers torch scikit-learn numpy
+```
 
+> **Note:** GPU acceleration requires a CUDA-enabled installation of PyTorch and a compatible NVIDIA GPU.
 
-GPU acceleration requires a CUDA-enabled installation of PyTorch and a compatible NVIDIA GPU.
+---
 
-Input Format
+## 📄 Input Format
 
-The application expects a plain text file containing one or more clinical notes. Notes may be separated with blank lines. For example:
+The application expects a **plain text file** containing one or more clinical notes, separated by blank lines.
 
-Patient presents with chest pain radiating to the left arm.
+### Example Input
+
+```
+Patient presents with chest pain radiating to the left arm. 
 EKG shows ST elevations and diaphoresis is present.
 
-Patient with COPD exacerbation requiring BiPAP.
+Patient with COPD exacerbation requiring BiPAP. 
 Increased sputum production and diminished breath sounds bilaterally.
-
+```
 
 Each paragraph is treated as a separate clinical note.
 
-Usage
+---
 
-Run the script:
+## Usage
 
-python clinical_BERT_analyzer.py
+### Getting Started
 
+1. **Run the script:**
+   ```bash
+   python clinical_BERT_analyzer.py
+   ```
 
-On launch, the program will request:
+2. **On launch, provide:**
+   - Path to the clinical text file
+   - CPU or GPU selection
 
-Path to the clinical text file
+### Main Menu Options
 
-CPU or GPU selection
+```
+1.  Extract Medical Concepts
+2.  Summarize Clinical Note
+3.  Find Similar Cases
+4.  Classify Urgency
+5.  Route to Specialty
+6.  Full Analysis Report
+7.  Analyze All Notes in File
+8.  Load Different File
+9.  Help
+10. Exit
+```
 
-The main menu then becomes available:
+Most options allow selection of a specific note or analysis of the entire document.
 
-1. Extract Medical Concepts
-2. Summarize Clinical Note
-3. Find Similar Cases
-4. Classify Urgency
-5. Route to Specialty
-6. Full Analysis Report
-7. Analyze All Notes in File
-8. Load Different File
-9. Help
-0. Exit
+---
 
+## 🔧 Technical Architecture
 
-Most options allow the user to select a specific note or perform analysis on the entire document.
+### Core Models & Technologies
 
-Under-the-Hood Design
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| **Semantic Embeddings** | BioBERT | Concept extraction and semantic understanding |
+| **Summarization** | BART (facebook/bart-large-cnn) | Abstractive clinical note summarization |
+| **Classification** | Zero-shot MNLI | Urgency scoring and specialty routing |
+| **Similarity Analysis** | Scikit-learn Cosine Similarity | Fast semantic case comparisons |
 
-BioBERT is used for semantic embeddings and concept extraction.
+### Performance Optimizations
 
-BART (facebook/bart-large-cnn) is used for abstractive summarization.
+- **Cached embeddings** prevent redundant computation
+- **GPU acceleration** available for faster inference
+- **Fallback rules-based system** provides limited functionality if transformer models cannot be loaded
 
-Zero-shot MNLI classification is used for:
+---
 
-Urgency scoring
+## 📋 Typical Workflow
+    A[Load Clinical Notes] --> B[Summarize Notes]
+    B --> C[Classify Urgency]
+    C --> D[Assign Specialty]
+    D --> E[Search Similar Cases]
+    E --> F[Generate Report]
+```
 
-Specialty routing
+1. **Load** a text file containing multiple clinical notes
+2. **Summarize** each note for high-level interpretation
+3. **Determine urgency** classification to assist with case prioritization
+4. **Assign** likely specialty routing
+5. **Search** for similar clinical cases within the dataset
 
-Cosine similarity from scikit-learn enables fast semantic case comparisons.
+---
 
-Cached embeddings prevent redundant computation and improve performance.
+## ⚠️ Important Disclaimer ⚠️ ##
 
-A fallback rules-based system provides limited functionality if transformer models cannot be loaded.
+> **This project is designed for research, experimentation, and software development purposes only.**
+> 
+> It is **not intended** for direct clinical decision making or patient care. Medical text models may produce inaccurate or misleading interpretations. All output must be verified manually by qualified healthcare professionals.
 
-Typical Workflow
+---
 
-Load a text file containing multiple clinical notes.
+## Additional Resources
+- **BioBERT Documentation**: Advanced biomedical language representation
+- **BART Model**: Sequence-to-sequence transformer for summarization
+- **Zero-shot Classification**: MNLI-based inference without task-specific training
 
-Summarize each note for high-level interpretation.
+---
 
-Determine urgency classification to assist with case prioritization.
-
-Assign likely specialty routing.
-
-Search for similar clinical cases within the dataset.
-
-Disclaimer
-
-This project is designed for research, experimentation, and software development purposes only.
-It is not intended for direct clinical decision making or patient care.
-Medical text models may produce inaccurate or misleading interpretations; all output must be verified manually.
+*For support or questions, please refer to the project repository or contact the development team.*
