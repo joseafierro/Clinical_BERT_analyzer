@@ -1,8 +1,8 @@
 **Clinical BERT Analyzer**
 Advanced Clinical Text Analysis with Medical NLP
 
-Overview
-Healthcare AI Analyzer is a Python application that leverages transformer-based medical NLP models to perform sophisticated analysis of unstructured clinical text. With an intuitive terminal interface, it delivers powerful insights for clinical documentation through concept extraction, summarization, semantic search, and intelligent classification.
+**Overview**
+Advanced Clinical Text Analysis w/medical NLP is a Python application that leverages transformer-based medical NLP models to perform sophisticated analysis of unstructured clinical text. With an intuitive terminal interface, it delivers powerful insights for clinical documentation through concept extraction, summarization, semantic search, and intelligent classification.
 
 **Designed for:** Clinicians · Healthcare Data Scientists · NLP Researchers
 
