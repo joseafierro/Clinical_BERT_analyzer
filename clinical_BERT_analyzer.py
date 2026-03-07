@@ -1,15 +1,7 @@
 from __future__ import annotations
 
 """
-Healthcare Text Analyzer - hardened local prototype
-
-Important:
-- This script is designed to be safer and more production-oriented than the original,
-  but code alone does not make a deployment HIPAA compliant.
-- Organizational controls, BAAs, infrastructure hardening, IAM, endpoint encryption,
-  backup strategy, monitoring, incident response, and formal validation are still required.
-- Advanced NLP functions are disabled unless approved model artifacts are available locally.
-- Network model downloads are intentionally disabled.
+Healthcare Unstructured Data Analyzer - local prototype
 """
 
 import base64
@@ -144,7 +136,7 @@ def atomic_write_bytes(path: Path, data: bytes) -> None:
 class KeyManager:
     """Manages the local master key.
 
-    For a true production deployment, replace this with KMS / HSM / OS keychain.
+   Will replace with KMS / HSM / OS keychain when ready for deployment 
     """
 
     def __init__(self, config: AppConfig):
@@ -421,8 +413,7 @@ class SecurityManager:
 class Deidentifier:
     """Rule-based de-identification.
 
-    This is materially broader than the original implementation but still not a
-    substitute for a validated de-identification program.
+    Not a substitute for a validated de-identification program but will update later 
     """
 
     PATTERNS: List[Tuple[re.Pattern[str], str]] = [
@@ -802,4 +793,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
